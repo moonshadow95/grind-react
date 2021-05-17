@@ -35,15 +35,6 @@ const Login = (props) => {
             <i className="fab fa-twitter"></i>Twitter
           </button>
         </li>
-        <li className={styles.item}>
-          <button className={styles.button}>
-            <div className={styles.left}></div>
-            <div className={styles.top}></div>
-            <div className={styles.right}></div>
-            <div className={styles.bottom}></div>
-            <i className="fab fa-apple"></i>Apple
-          </button>
-        </li>
       </ul>
     </section>
   );
