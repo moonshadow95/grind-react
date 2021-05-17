@@ -3,16 +3,16 @@ import styles from './app.module.css';
 import Gallery from './components/gallery/gallery';
 import Login from './components/login/login';
 
-function App() {
+function App({ authService }) {
   return (
     <div className={styles.app}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Login />
+            <Login authService={authService} />
           </Route>
           <Route path="/gallery">
-            <Gallery />
+            <Gallery authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>
