@@ -1,0 +1,22 @@
+@value grindBlack from '../../common/colors.css';
+
+.header {
+  font-size: 1.5rem;
+  padding: 0.4em 0.8em;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: grindBlack;
+  animation: draw 600ms ease forwards;
+}
+
+@keyframes draw {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
