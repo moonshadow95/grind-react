@@ -1,10 +1,21 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import Header from '../header/header';
 import styles from './login.module.css';
 
 const Login = ({ authService }) => {
+  const history = useHistory();
+  const goToGallery = (userId) => {
+    history.push({
+      pathname: '/gallery',
+      state: { id: userId },
+    });
+    console.log(history);
+  };
   const onLogin = (event) => {
-    authService.login(event.currentTarget.textContent);
+    authService.login(event.currentTarget.textContent).then((data) => {
+      goToGallery(data.user.uid);
+    });
   };
 
   return (
