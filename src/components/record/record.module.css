@@ -1,0 +1,31 @@
+@value grindBlack, grindWhite from '../../common/colors.css';
+
+.record {
+  flex-basis: 25%;
+  border-right: 1px solid grindBlack;
+  border-bottom: 1px solid grindBlack;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.form {
+  padding: 0.8em;
+  width: 30%;
+  min-width: 10em;
+}
+
+.date {
+  width: 100%;
+}
+
+input {
+  font-family: 'Titillium Web', sans-serif;
+  border: none;
+  width: 2rem;
+}
+
+.tag {
+  width: 4rem;
+}
+
+.container {
+}
