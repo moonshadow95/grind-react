@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import Header from '../header/header';
 import styles from './login.module.css';
@@ -10,13 +10,18 @@ const Login = ({ authService }) => {
       pathname: '/gallery',
       state: { id: userId },
     });
-    console.log(history);
   };
   const onLogin = (event) => {
     authService.login(event.currentTarget.textContent).then((data) => {
       goToGallery(data.user.uid);
     });
   };
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      user && goToGallery(user.id);
+    });
+  });
 
   return (
     <section className={styles.login}>

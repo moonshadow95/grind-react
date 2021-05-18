@@ -11,6 +11,7 @@
   text-align: center;
   color: grindBlack;
   margin: 1em;
+  font-weight: normal;
 }
 
 .list {
@@ -34,8 +35,8 @@
   cursor: pointer;
   border: none;
   overflow: hidden;
-  font-family: 'Open Sans Condensed';
-  font-size: 1.2rem;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.1rem;
 }
 
 .button:hover {
