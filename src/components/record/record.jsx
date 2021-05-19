@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './record.module.css';
 
-const Record = ({ record }) => {
-  const { weight, muscle, bodyFat, memo, tag } = record;
+const Record = ({ record, toggle }) => {
+  const { weight, muscle, bodyFat, tag, fileURL } = record;
+
   return (
     <div className={styles.record}>
-      <form className={styles.form}>
+      <form className={`${styles.form} ${toggle ? styles.show : styles.hide}`}>
         <input type="date" className={styles.date}></input>
         <div className={styles.container}>
           <input
@@ -50,8 +51,8 @@ const Record = ({ record }) => {
           <option value="Arm"></option>
           <option value="Diet"></option>
         </datalist>
-        <textarea className={styles.memo} placeholder={memo}></textarea>
       </form>
+      {fileURL && <img className={styles.image} src={fileURL} alt="image" />}
     </div>
   );
 };
