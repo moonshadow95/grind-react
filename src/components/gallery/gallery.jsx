@@ -20,7 +20,7 @@ const Gallery = ({ authService }) => {
       bodyFat: '17.3',
       muscle: '39.8',
       tag: 'Front',
-      fileURL: null,
+      fileURL: '/images/sample_1.jpg',
     },
     3: {
       date: '21-02-02',
@@ -28,7 +28,7 @@ const Gallery = ({ authService }) => {
       bodyFat: '17.3',
       muscle: '39.8',
       tag: 'Front',
-      fileURL: null,
+      fileURL: '/images/sample_2.jpg',
     },
     4: {
       date: '21-02-25',
@@ -36,7 +36,7 @@ const Gallery = ({ authService }) => {
       bodyFat: '17.3',
       muscle: '39.8',
       tag: 'Front',
-      fileURL: null,
+      fileURL: '/images/sample_3.jpg',
     },
     5: {
       date: '21-03-05',

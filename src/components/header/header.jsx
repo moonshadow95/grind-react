@@ -21,9 +21,6 @@ const Header = ({ onLogout }) => (
               <button className={styles.button}>Arm</button>
             </li>
             <li className={styles.item}>
-              <button className={styles.button}>Diet</button>
-            </li>
-            <li className={styles.item}>
               <button className={styles.logout} onClick={onLogout}>
                 Logout
               </button>

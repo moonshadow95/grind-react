@@ -20,6 +20,7 @@ const Records = ({ records }) => {
         className={`${styles.button} ${isToggleOn ? styles.show : styles.hide}`}
         onClick={onToggle}
       >
+        Summary
         <i className="fas fa-sort-down"></i>
       </button>
     </section>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './record.module.css';
 
 const Record = ({ record, toggle }) => {
