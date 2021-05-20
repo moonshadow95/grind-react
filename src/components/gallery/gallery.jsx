@@ -12,7 +12,7 @@ const Gallery = ({ authService }) => {
       bodyFat: '17.3',
       muscle: '39.8',
       tag: 'Front',
-      fileURL: '/images/default.png',
+      fileURL: null,
     },
     2: {
       date: '21-01-15',

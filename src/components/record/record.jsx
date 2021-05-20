@@ -3,7 +3,7 @@ import styles from './record.module.css';
 
 const Record = ({ record, toggle }) => {
   const { weight, muscle, bodyFat, tag, fileURL } = record;
-
+  const DEFAULT_IMAGE = '/images/default.png';
   return (
     <div className={styles.record}>
       <form className={`${styles.form} ${toggle ? styles.show : styles.hide}`}>
@@ -52,7 +52,11 @@ const Record = ({ record, toggle }) => {
           <option value="Diet"></option>
         </datalist>
       </form>
-      {fileURL && <img className={styles.image} src={fileURL} alt="image" />}
+      <img
+        className={styles.image}
+        src={`${fileURL || DEFAULT_IMAGE}`}
+        alt="image"
+      />
     </div>
   );
 };
