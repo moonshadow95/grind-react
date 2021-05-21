@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styles from './app.module.css';
-import Gallery from './components/gallery/gallery';
+import Body from './components/body/body';
+import Home from './components/home/home';
 import Login from './components/login/login';
 
 function App({ authService }) {
@@ -11,8 +12,8 @@ function App({ authService }) {
           <Route exact path="/">
             <Login authService={authService} />
           </Route>
-          <Route path="/gallery">
-            <Gallery authService={authService} />
+          <Route path="/home">
+            <Home authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>

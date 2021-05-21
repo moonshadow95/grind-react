@@ -5,21 +5,21 @@ import styles from './login.module.css';
 
 const Login = ({ authService }) => {
   const history = useHistory();
-  const goToGallery = (userId) => {
+  const goToHome = (userId) => {
     history.push({
-      pathname: '/gallery',
+      pathname: '/home',
       state: { id: userId },
     });
   };
   const onLogin = (event) => {
     authService.login(event.currentTarget.textContent).then((data) => {
-      goToGallery(data.user.uid);
+      goToHome(data.user.uid);
     });
   };
 
   useEffect(() => {
     authService.onAuthChange((user) => {
-      user && goToGallery(user.id);
+      user && goToHome(user.id);
     });
   });
 

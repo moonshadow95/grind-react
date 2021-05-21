@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Header from '../header/header';
 import Records from '../records/records';
-import styles from './gallery.module.css';
+import styles from './body.module.css';
 
-const Gallery = ({ authService }) => {
+const Body = ({ authService }) => {
   const [records, setRecords] = useState({
     1: {
       date: '20-11-05',
@@ -77,7 +77,7 @@ const Gallery = ({ authService }) => {
     });
   });
   return (
-    <section className={styles.gallery}>
+    <section className={styles.body}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         <Records records={records} />
@@ -86,4 +86,4 @@ const Gallery = ({ authService }) => {
   );
 };
 
-export default Gallery;
+export default Body;
