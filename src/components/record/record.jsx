@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../button/button';
+import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './record.module.css';
 
 const Record = ({ record, toggle }) => {
@@ -64,7 +64,7 @@ const Record = ({ record, toggle }) => {
         src={fileURL || DEFAULT_IMAGE}
         alt="image"
       />
-      <Button
+      <ImageFileInput
         name={fileURL ? 'Delete' : 'Add'}
         onClick={fileURL ? onDelete : onAdd}
       />
