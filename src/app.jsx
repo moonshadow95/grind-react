@@ -12,8 +12,11 @@ function App({ authService }) {
           <Route exact path="/">
             <Login authService={authService} />
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             <Home authService={authService} />
+          </Route>
+          <Route path="/home/body">
+            <Body authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>
