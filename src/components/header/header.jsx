@@ -3,7 +3,7 @@ import styles from './header.module.css';
 
 const Header = ({ onLogout }) => (
   <div>
-    <header className={styles.header}>
+    <header className={`${styles.header} ${onLogout && styles.fixed}`}>
       <h1 className={styles.title}>Grind.</h1>
       {onLogout && (
         <nav className={styles.nav}>
@@ -28,8 +28,8 @@ const Header = ({ onLogout }) => (
           </ul>
         </nav>
       )}
+      <div className={styles.line}></div>
     </header>
-    <div className={styles.line}></div>
   </div>
 );
 export default Header;

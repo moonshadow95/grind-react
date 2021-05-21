@@ -5,13 +5,15 @@
   flex-wrap: wrap;
   width: 100%;
   position: relative;
+  margin-top: 66px;
 }
 
 .button {
   font-family: 'Titillium Web', sans-serif;
-  position: absolute;
+  position: fixed;
+  z-index: 1;
   right: 4.5em;
-  top: -3em;
+  top: 0.8em;
   font-size: 1.1rem;
   border: none;
   background-color: transparent;

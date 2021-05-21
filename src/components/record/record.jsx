@@ -1,9 +1,16 @@
 import React from 'react';
+import Button from '../button/button';
 import styles from './record.module.css';
 
 const Record = ({ record, toggle }) => {
   const { weight, muscle, bodyFat, tag, fileURL } = record;
   const DEFAULT_IMAGE = '/images/default.png';
+  const onAdd = () => {
+    console.log('Add');
+  };
+  const onDelete = () => {
+    console.log('Delete');
+  };
   return (
     <div className={styles.record}>
       <form className={`${styles.form} ${toggle ? styles.show : styles.hide}`}>
@@ -54,8 +61,12 @@ const Record = ({ record, toggle }) => {
       </form>
       <img
         className={styles.image}
-        src={`${fileURL || DEFAULT_IMAGE}`}
+        src={fileURL || DEFAULT_IMAGE}
         alt="image"
+      />
+      <Button
+        name={fileURL ? 'Delete' : 'Add'}
+        onClick={fileURL ? onDelete : onAdd}
       />
     </div>
   );

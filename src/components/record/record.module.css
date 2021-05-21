@@ -1,5 +1,6 @@
 @value grindBlack, grindWhite, grindShadow from '../../common/colors.css';
 @value mediaQuery3, mediaQuery2, mediaQuery1 from '../../common/size.css';
+
 .record {
   flex-basis: 25%;
   border-right: 1px solid grindBlack;
