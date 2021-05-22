@@ -8,31 +8,39 @@
   margin-top: 66px;
 }
 
-.button {
+.container {
   font-family: 'Titillium Web', sans-serif;
   position: fixed;
   z-index: 1;
   right: 4.5em;
-  top: 0.8em;
+  top: 1em;
+}
+
+.container button {
   font-size: 1.1rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
-.button svg {
-  margin: auto;
-  transition: all 150ms ease-in;
-  font-size: 1.8rem;
+.container svg {
+  font-size: 1.7rem;
   margin-left: 0.2em;
+}
+.buttonSum svg {
+  transition: all 150ms ease-in;
   transform-origin: center;
-  transform-origin: center 20px;
+  transform-origin: center 18px;
 }
 
-.button.show svg {
+.buttonDiet svg {
+  font-size: 1.2rem;
+}
+
+.buttonSum.show svg {
   transform: rotate(180deg);
 }
 
-.button.hide svg {
+.buttonSum.hide svg {
   transform: rotate(0);
 }

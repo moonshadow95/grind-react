@@ -18,6 +18,11 @@
   font-size: 2rem;
   cursor: pointer;
   padding: 0 0.5em;
+  color: grindBlack;
+}
+
+a {
+  text-decoration: none;
 }
 
 .line {
