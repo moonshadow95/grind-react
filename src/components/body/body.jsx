@@ -11,7 +11,7 @@ const Body = ({ authService, type }) => {
       weight: '79.8',
       bodyFat: '17.3',
       muscle: '39.8',
-      tag: 'Front',
+      bodyTag: 'Front',
       fileURL: null,
     },
     2: {
@@ -19,7 +19,7 @@ const Body = ({ authService, type }) => {
       weight: '79.8',
       bodyFat: '17.3',
       muscle: '39.8',
-      tag: 'Front',
+      bodyTag: 'Front',
       fileURL: '/images/sample_1.jpg',
     },
     3: {
@@ -27,7 +27,7 @@ const Body = ({ authService, type }) => {
       weight: '79.8',
       bodyFat: '17.3',
       muscle: '39.8',
-      tag: 'Front',
+      bodyTag: 'Front',
       fileURL: '/images/sample_2.jpg',
     },
     4: {
@@ -35,7 +35,7 @@ const Body = ({ authService, type }) => {
       weight: '79.8',
       bodyFat: '17.3',
       muscle: '39.8',
-      tag: 'Front',
+      bodyTag: 'Front',
       fileURL: '/images/sample_3.jpg',
     },
     5: {
@@ -43,7 +43,7 @@ const Body = ({ authService, type }) => {
       weight: '79.8',
       bodyFat: '17.3',
       muscle: '39.8',
-      tag: 'Front',
+      bodyTag: 'Front',
       fileURL: null,
     },
     6: {
@@ -51,7 +51,7 @@ const Body = ({ authService, type }) => {
       weight: '79.8',
       bodyFat: '17.3',
       muscle: '39.8',
-      tag: 'Front',
+      bodyTag: 'Front',
       fileURL: null,
     },
     7: {
@@ -59,44 +59,44 @@ const Body = ({ authService, type }) => {
       weight: '79.8',
       bodyFat: '17.3',
       muscle: '39.8',
-      tag: 'Front',
+      bodyTag: 'Front',
       fileURL: null,
     },
   });
   const [diets, setDiets] = useState({
     1: {
       date: '20-11-05',
-      tag: 'Breakfast',
+      dietTag: 'Breakfast',
       fileURL: null,
     },
     2: {
       date: '21-01-15',
-      tag: 'Breakfast',
+      dietTag: 'Breakfast',
       fileURL: '/images/diet_sample_1.jpg',
     },
     3: {
       date: '21-02-02',
-      tag: 'Breakfast',
+      dietTag: 'Breakfast',
       fileURL: '/images/diet_sample_2.jpg',
     },
     4: {
       date: '21-02-25',
-      tag: 'Breakfast',
+      dietTag: 'Breakfast',
       fileURL: '/images/diet_sample_3.jpg',
     },
     5: {
       date: '21-03-05',
-      tag: 'Breakfast',
+      dietTag: 'Breakfast',
       fileURL: null,
     },
     6: {
       date: '20-04-28',
-      tag: 'Breakfast',
+      dietTag: 'Breakfast',
       fileURL: null,
     },
     7: {
       date: '21-05-18',
-      tag: 'Breakfast',
+      dietTag: 'Breakfast',
       fileURL: null,
     },
   });
