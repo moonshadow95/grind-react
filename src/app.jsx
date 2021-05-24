@@ -5,6 +5,8 @@ import Home from './components/home/home';
 import Login from './components/login/login';
 
 function App({ authService }) {
+  const typeIsBody = 'body';
+  const typeIsDiet = 'diet';
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -16,7 +18,10 @@ function App({ authService }) {
             <Home authService={authService} />
           </Route>
           <Route path="/home/body">
-            <Body authService={authService} />
+            <Body authService={authService} type={typeIsBody} />
+          </Route>
+          <Route path="/home/diet">
+            <Body authService={authService} type={typeIsDiet} />
           </Route>
         </Switch>
       </BrowserRouter>

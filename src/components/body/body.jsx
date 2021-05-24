@@ -4,8 +4,8 @@ import Header from '../header/header';
 import Records from '../records/records';
 import styles from './body.module.css';
 
-const Body = ({ authService }) => {
-  const [records, setRecords] = useState({
+const Body = ({ authService, type }) => {
+  const [bodies, setBodies] = useState({
     1: {
       date: '20-11-05',
       weight: '79.8',
@@ -63,6 +63,43 @@ const Body = ({ authService }) => {
       fileURL: null,
     },
   });
+  const [diets, setDiets] = useState({
+    1: {
+      date: '20-11-05',
+      tag: 'Breakfast',
+      fileURL: null,
+    },
+    2: {
+      date: '21-01-15',
+      tag: 'Breakfast',
+      fileURL: '/images/diet_sample_1.jpg',
+    },
+    3: {
+      date: '21-02-02',
+      tag: 'Breakfast',
+      fileURL: '/images/diet_sample_2.jpg',
+    },
+    4: {
+      date: '21-02-25',
+      tag: 'Breakfast',
+      fileURL: '/images/diet_sample_3.jpg',
+    },
+    5: {
+      date: '21-03-05',
+      tag: 'Breakfast',
+      fileURL: null,
+    },
+    6: {
+      date: '20-04-28',
+      tag: 'Breakfast',
+      fileURL: null,
+    },
+    7: {
+      date: '21-05-18',
+      tag: 'Breakfast',
+      fileURL: null,
+    },
+  });
   const history = useHistory();
 
   const onLogout = () => {
@@ -80,7 +117,11 @@ const Body = ({ authService }) => {
     <section className={styles.body}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Records records={records} />
+        {type === 'body' ? (
+          <Records records={bodies} />
+        ) : (
+          <Records records={diets} />
+        )}
       </div>
     </section>
   );

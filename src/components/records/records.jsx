@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import Record from '../record/record';
 import styles from './records.module.css';
@@ -13,6 +13,7 @@ const Records = ({ records }) => {
       setIsToggleOn(false);
     }
   };
+
   return (
     <section className={styles.records}>
       {Object.keys(records).map((key) => (
@@ -28,13 +29,21 @@ const Records = ({ records }) => {
           <span>Summary</span>
           <i className="fas fa-sort-down"></i>
         </button>
-
-        <Link to="../diet">
-          <button className={styles.buttonDiet}>
-            <span>Diet</span>
-            <i className="fas fa-exchange-alt"></i>
-          </button>
-        </Link>
+        {path === '/home/body' ? (
+          <Link to="../home/diet">
+            <button className={styles.buttonDiet}>
+              <span>Diet</span>
+              <i className="fas fa-exchange-alt"></i>
+            </button>
+          </Link>
+        ) : (
+          <Link to="../home/body">
+            <button className={styles.buttonDiet}>
+              <span>Body</span>
+              <i className="fas fa-exchange-alt"></i>
+            </button>
+          </Link>
+        )}
       </div>
     </section>
   );
