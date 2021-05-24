@@ -15,7 +15,7 @@ function App({ FileInput, authService }) {
             <Login authService={authService} />
           </Route>
           <Route exact path="/home">
-            <Home authService={authService} />
+            <Home />
           </Route>
           <Route path="/home/body">
             <Body

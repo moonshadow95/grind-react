@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import AddForm from '../add_form/add_form';
 import Record from '../record/record';
@@ -17,7 +17,7 @@ const Records = ({ FileInput, records }) => {
 
   return (
     <section className={styles.records}>
-      <AddForm />
+      <AddForm FileInput={FileInput} />
       {Object.keys(records).map((key) => (
         <Record key={key} record={records[key]} toggle={isToggleOn} />
       ))}

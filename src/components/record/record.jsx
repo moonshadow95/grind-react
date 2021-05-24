@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageFileInput from '../image_file_input/image_file_input';
+import Button from '../button/button';
 import styles from './record.module.css';
 
 const Record = ({ record, toggle }) => {
@@ -63,7 +63,6 @@ const Record = ({ record, toggle }) => {
             <option value="Back"></option>
             <option value="Leg"></option>
             <option value="Arm"></option>
-            <option value="Diet"></option>
           </datalist>
         ) : (
           <datalist id="tag">
@@ -79,6 +78,7 @@ const Record = ({ record, toggle }) => {
         src={fileURL || DEFAULT_IMAGE}
         alt="image"
       />
+      <Button name={'Delete'} />
     </div>
   );
 };

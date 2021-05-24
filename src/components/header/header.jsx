@@ -19,16 +19,24 @@ const Header = ({ onLogout }) => {
           <nav className={styles.nav}>
             <ul className={styles.list}>
               <li className={styles.item}>
-                <button className={styles.button}>Front</button>
+                <button className={styles.button}>
+                  {url === '/home/body' ? 'Front' : 'Breakfast'}
+                </button>
               </li>
               <li className={styles.item}>
-                <button className={styles.button}>Back</button>
+                <button className={styles.button}>
+                  {url === '/home/body' ? 'Back' : 'Lunch'}
+                </button>
               </li>
               <li className={styles.item}>
-                <button className={styles.button}>Leg</button>
+                <button className={styles.button}>
+                  {url === '/home/body' ? 'Leg' : 'Dinner'}
+                </button>
               </li>
               <li className={styles.item}>
-                <button className={styles.button}>Arm</button>
+                <button className={styles.button}>
+                  {url === '/home/body' ? 'Arm' : 'Snack'}
+                </button>
               </li>
               <li className={styles.item}>
                 <button className={styles.logout} onClick={onLogout}>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../header/header';
 import styles from './home.module.css';
 
-const Home = ({ authService }) => {
+const Home = (props) => {
   let { path, url } = useRouteMatch();
   return (
     <section className={styles.home}>
