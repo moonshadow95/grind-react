@@ -14,12 +14,12 @@ const Record = ({ record, toggle }) => {
   return (
     <div className={styles.record}>
       <form className={`${styles.form} ${toggle ? styles.show : styles.hide}`}>
-        <input type="date" className={styles.date}></input>
+        <input type="date" className={`${styles.date} ${styles.input}`}></input>
         {weight && (
           <div className={styles.container}>
             <input
               type="text"
-              className={styles.weight}
+              className={styles.input}
               min="0"
               placeholder={weight}
             ></input>
@@ -30,7 +30,7 @@ const Record = ({ record, toggle }) => {
           <div className={styles.container}>
             <input
               type="text"
-              className={styles.muscle}
+              className={styles.input}
               min="0"
               placeholder={muscle}
             ></input>
@@ -41,20 +41,20 @@ const Record = ({ record, toggle }) => {
           <div className={styles.container}>
             <input
               type="text"
-              className={styles.bodyFat}
+              className={styles.input}
               min="0"
               placeholder={bodyFat}
             ></input>
             %
           </div>
         )}
-        <div>
+        <div className={styles.container}>
           #&nbsp;
           <input
             type="text"
             list="tag"
             placeholder={bodyTag || dietTag}
-            className={styles.tag}
+            className={`${styles.tag} ${styles.input}`}
           ></input>
         </div>
         {bodyTag ? (
@@ -78,10 +78,6 @@ const Record = ({ record, toggle }) => {
         className={styles.image}
         src={fileURL || DEFAULT_IMAGE}
         alt="image"
-      />
-      <ImageFileInput
-        name={fileURL ? 'Delete' : 'Add'}
-        onClick={fileURL ? onDelete : onAdd}
       />
     </div>
   );

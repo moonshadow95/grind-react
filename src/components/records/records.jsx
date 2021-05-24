@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
+import AddForm from '../add_form/add_form';
 import Record from '../record/record';
 import styles from './records.module.css';
 
-const Records = ({ records }) => {
+const Records = ({ FileInput, records }) => {
   let { path, url } = useRouteMatch();
   const [isToggleOn, setIsToggleOn] = useState(true);
   const onToggle = () => {
@@ -16,6 +17,7 @@ const Records = ({ records }) => {
 
   return (
     <section className={styles.records}>
+      <AddForm />
       {Object.keys(records).map((key) => (
         <Record key={key} record={records[key]} toggle={isToggleOn} />
       ))}

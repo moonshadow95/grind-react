@@ -4,16 +4,8 @@ import Header from '../header/header';
 import Records from '../records/records';
 import styles from './body.module.css';
 
-const Body = ({ authService, type }) => {
+const Body = ({ FileInput, authService, type }) => {
   const [bodies, setBodies] = useState({
-    1: {
-      date: '20-11-05',
-      weight: '79.8',
-      bodyFat: '17.3',
-      muscle: '39.8',
-      bodyTag: 'Front',
-      fileURL: null,
-    },
     2: {
       date: '21-01-15',
       weight: '79.8',
@@ -38,37 +30,8 @@ const Body = ({ authService, type }) => {
       bodyTag: 'Front',
       fileURL: '/images/sample_3.jpg',
     },
-    5: {
-      date: '21-03-05',
-      weight: '79.8',
-      bodyFat: '17.3',
-      muscle: '39.8',
-      bodyTag: 'Front',
-      fileURL: null,
-    },
-    6: {
-      date: '20-04-28',
-      weight: '79.8',
-      bodyFat: '17.3',
-      muscle: '39.8',
-      bodyTag: 'Front',
-      fileURL: null,
-    },
-    7: {
-      date: '21-05-18',
-      weight: '79.8',
-      bodyFat: '17.3',
-      muscle: '39.8',
-      bodyTag: 'Front',
-      fileURL: null,
-    },
   });
   const [diets, setDiets] = useState({
-    1: {
-      date: '20-11-05',
-      dietTag: 'Breakfast',
-      fileURL: null,
-    },
     2: {
       date: '21-01-15',
       dietTag: 'Breakfast',
@@ -83,21 +46,6 @@ const Body = ({ authService, type }) => {
       date: '21-02-25',
       dietTag: 'Breakfast',
       fileURL: '/images/diet_sample_3.jpg',
-    },
-    5: {
-      date: '21-03-05',
-      dietTag: 'Breakfast',
-      fileURL: null,
-    },
-    6: {
-      date: '20-04-28',
-      dietTag: 'Breakfast',
-      fileURL: null,
-    },
-    7: {
-      date: '21-05-18',
-      dietTag: 'Breakfast',
-      fileURL: null,
     },
   });
   const history = useHistory();
@@ -118,9 +66,9 @@ const Body = ({ authService, type }) => {
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         {type === 'body' ? (
-          <Records records={bodies} />
+          <Records FileInput={FileInput} records={bodies} />
         ) : (
-          <Records records={diets} />
+          <Records FileInput={FileInput} records={diets} />
         )}
       </div>
     </section>

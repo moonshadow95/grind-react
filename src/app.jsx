@@ -4,7 +4,7 @@ import Body from './components/body/body';
 import Home from './components/home/home';
 import Login from './components/login/login';
 
-function App({ authService }) {
+function App({ FileInput, authService }) {
   const typeIsBody = 'body';
   const typeIsDiet = 'diet';
   return (
@@ -18,10 +18,18 @@ function App({ authService }) {
             <Home authService={authService} />
           </Route>
           <Route path="/home/body">
-            <Body authService={authService} type={typeIsBody} />
+            <Body
+              FileInput={FileInput}
+              authService={authService}
+              type={typeIsBody}
+            />
           </Route>
           <Route path="/home/diet">
-            <Body authService={authService} type={typeIsDiet} />
+            <Body
+              FileInput={FileInput}
+              authService={authService}
+              type={typeIsDiet}
+            />
           </Route>
         </Switch>
       </BrowserRouter>
