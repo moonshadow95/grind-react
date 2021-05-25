@@ -5,12 +5,8 @@ import styles from './record.module.css';
 const Record = ({ record, toggle }) => {
   const { weight, muscle, bodyFat, bodyTag, dietTag, fileURL } = record;
   const DEFAULT_IMAGE = '/images/default.png';
-  const onAdd = () => {
-    console.log('Add');
-  };
-  const onDelete = () => {
-    console.log('Delete');
-  };
+
+  const onSubmit = () => {};
   return (
     <div className={styles.record}>
       <form className={`${styles.form} ${toggle ? styles.show : styles.hide}`}>
@@ -41,7 +37,7 @@ const Record = ({ record, toggle }) => {
           <div className={styles.container}>
             <input
               type="text"
-              className={styles.input}
+              className={`${styles.input} ${styles.fat}`}
               min="0"
               placeholder={bodyFat}
             ></input>
@@ -50,35 +46,35 @@ const Record = ({ record, toggle }) => {
         )}
         <div className={styles.container}>
           #&nbsp;
-          <input
+          <select
             type="text"
-            list="tag"
             placeholder={bodyTag || dietTag}
             className={`${styles.tag} ${styles.input}`}
-          ></input>
+          >
+            {bodyTag ? (
+              <>
+                <option value="Front">Front</option>
+                <option value="Back">Back</option>
+                <option value="Leg">Leg</option>
+                <option value="Arm">Arm</option>
+              </>
+            ) : (
+              <>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snack">Snack</option>
+              </>
+            )}
+          </select>
         </div>
-        {bodyTag ? (
-          <datalist id="tag">
-            <option value="Front"></option>
-            <option value="Back"></option>
-            <option value="Leg"></option>
-            <option value="Arm"></option>
-          </datalist>
-        ) : (
-          <datalist id="tag">
-            <option value="Breakfast"></option>
-            <option value="Lunch"></option>
-            <option value="Dinner"></option>
-            <option value="Snack"></option>
-          </datalist>
-        )}
       </form>
       <img
         className={styles.image}
         src={fileURL || DEFAULT_IMAGE}
         alt="image"
       />
-      <Button name={'Delete'} />
+      <Button name={'Delete'} onClick={onSubmit} />
     </div>
   );
 };

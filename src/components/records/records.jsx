@@ -4,7 +4,7 @@ import AddForm from '../add_form/add_form';
 import Record from '../record/record';
 import styles from './records.module.css';
 
-const Records = ({ FileInput, records }) => {
+const Records = ({ FileInput, records, addRecord }) => {
   let { path, url } = useRouteMatch();
   const [isToggleOn, setIsToggleOn] = useState(true);
   const onToggle = () => {
@@ -17,7 +17,7 @@ const Records = ({ FileInput, records }) => {
 
   return (
     <section className={styles.records}>
-      <AddForm FileInput={FileInput} />
+      <AddForm FileInput={FileInput} onAdd={addRecord} />
       {Object.keys(records).map((key) => (
         <Record key={key} record={records[key]} toggle={isToggleOn} />
       ))}

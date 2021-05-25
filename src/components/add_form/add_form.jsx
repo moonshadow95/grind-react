@@ -1,39 +1,68 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useRouteMatch } from 'react-router';
+import Button from '../button/button';
 import styles from './add_form.module.css';
 
-const AddForm = ({ FileInput }) => {
+const AddForm = ({ FileInput, onAdd }) => {
+  const formRef = useRef();
+  const dateRef = useRef();
+  const weightRef = useRef();
+  const muscleRef = useRef();
+  const fatRef = useRef();
+  const tagRef = useRef();
   const { url } = useRouteMatch();
   const DEFAULT_IMAGE = '/images/default.png';
+
+  const onSubmit = (event) => {
+    const record = {
+      id: Date.now(), // uuid
+      date: dateRef.current.value || '',
+      weight: weightRef.current.value || '',
+      muscle: muscleRef.current.value || '',
+      fat: fatRef.current.value || '',
+      tag: tagRef.current.value || '',
+      fileURL: '',
+    };
+    formRef.current.reset();
+    onAdd(record);
+  };
   return (
     <div className={styles.record}>
-      <form className={styles.form}>
-        <input type="date" className={`${styles.input} ${styles.date}`}></input>
+      <form ref={formRef} className={styles.form}>
+        <input
+          ref={dateRef}
+          type="date"
+          name="date"
+          className={`${styles.input} ${styles.date}`}
+        ></input>
         {url === '/home/body' ? (
           <>
             <div className={styles.container}>
               <input
+                ref={weightRef}
                 type="text"
                 className={styles.input}
-                min="0"
+                name="weight"
                 placeholder="Weight"
               ></input>
               kg
             </div>
             <div className={styles.container}>
               <input
+                ref={muscleRef}
                 type="text"
                 className={styles.input}
-                min="0"
+                name="muscle"
                 placeholder="Muscle"
               ></input>
               kg
             </div>
             <div className={styles.container}>
               <input
+                ref={fatRef}
                 type="text"
-                className={styles.input}
-                min="0"
+                className={`${styles.input} ${styles.fat}`}
+                name="fat"
                 placeholder="Fat"
               ></input>
               %
@@ -42,16 +71,38 @@ const AddForm = ({ FileInput }) => {
         ) : null}
         <div className={styles.container}>
           #&nbsp;
-          <input
+          <select
+            ref={tagRef}
             type="text"
-            list="tag"
-            className={`${styles.input} ${styles.tag}`}
+            name="tag"
+            className={`${styles.input} ${styles.tag} ${
+              url === 'home/diet' && styles.diet
+            }`}
             placeholder="Tag"
-          ></input>
+          >
+            {url === '/home/body' ? (
+              <>
+                <option value="Front">Front</option>
+                <option value="Back">Back</option>
+                <option value="Leg">Leg</option>
+                <option value="Arm">Arm</option>
+              </>
+            ) : (
+              <>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snack">Snack</option>
+              </>
+            )}
+          </select>
         </div>
       </form>
       <img className={styles.image} src={DEFAULT_IMAGE} alt="default image" />
-      <FileInput name={'Add'} />
+      <div className={styles.buttons}>
+        <FileInput />
+        <Button onClick={onSubmit} name="Add" />
+      </div>
     </div>
   );
 };

@@ -1,19 +1,16 @@
 @value grindWhite, grindBlack from '../../common/colors.css';
 
 .button {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
   background-color: grindWhite;
   outline: none;
   border: none;
   border-top: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 1px solid black;
   padding: 0.4em 1em;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .button:hover {
-  opacity: 1;
+  opacity: 0.7;
 }

@@ -61,12 +61,21 @@ const Body = ({ FileInput, authService, type }) => {
       }
     });
   });
+
+  const addRecord = (record) => {
+    console.log(record);
+  };
+
   return (
     <section className={styles.body}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         {type === 'body' ? (
-          <Records FileInput={FileInput} records={bodies} />
+          <Records
+            FileInput={FileInput}
+            records={bodies}
+            addRecord={addRecord}
+          />
         ) : (
           <Records FileInput={FileInput} records={diets} />
         )}

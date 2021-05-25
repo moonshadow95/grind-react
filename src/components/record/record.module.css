@@ -17,12 +17,15 @@
   position: absolute;
   top: -1px;
   left: 0;
-  opacity: 0.7;
-  background: grindWhite;
+  background-color: rgba(255, 255, 255, 0.7);
   overflow: hidden;
   width: 100%;
   border-bottom: 1px solid grindBlack;
   padding: 0 1em;
+}
+
+.form:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .form.show {
@@ -68,15 +71,18 @@
   border: none;
   background-color: transparent;
   width: 3.8rem;
-  opacity: 1;
   text-align: right;
 }
 input:focus {
   outline: none;
 }
 
-.tag {
-  width: 4rem;
+.input.fat {
+  width: 2.5rem;
+}
+
+.input.tag {
+  width: 5rem;
   background: transparent;
 }
 
