@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Button from '../button/button';
 import styles from './record.module.css';
 
-const Record = ({ record, toggle }) => {
+const Record = ({ FileInput, updateRecord, deleteRecord, record, toggle }) => {
   const { weight, muscle, bodyFat, bodyTag, dietTag, fileURL } = record;
   const DEFAULT_IMAGE = '/images/default.png';
+  const dateRef = useRef();
+  const weightRef = useRef();
+  const muscleRef = useRef();
+  const fatRef = useRef();
+  const tagRef = useRef();
 
-  const onSubmit = () => {};
+  const onChange = (event) => {
+    if (event.currentTarget == null) {
+      return;
+    }
+    event.preventDefault();
+    updateRecord({
+      ...record,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+
+  const onSubmit = () => {
+    deleteRecord(record);
+  };
   return (
     <div className={styles.record}>
       <form className={`${styles.form} ${toggle ? styles.show : styles.hide}`}>
-        <input type="date" className={`${styles.date} ${styles.input}`}></input>
+        <input
+          ref={dateRef}
+          type="date"
+          className={`${styles.date} ${styles.input}`}
+          onChange={onChange}
+        ></input>
         {weight && (
           <div className={styles.container}>
             <input
+              ref={weightRef}
               type="text"
               className={styles.input}
-              min="0"
               placeholder={weight}
+              onChange={onChange}
             ></input>
             kg
           </div>
@@ -25,10 +49,11 @@ const Record = ({ record, toggle }) => {
         {muscle && (
           <div className={styles.container}>
             <input
+              ref={muscleRef}
               type="text"
               className={styles.input}
-              min="0"
               placeholder={muscle}
+              onChange={onChange}
             ></input>
             kg
           </div>
@@ -36,10 +61,11 @@ const Record = ({ record, toggle }) => {
         {bodyFat && (
           <div className={styles.container}>
             <input
+              ref={fatRef}
               type="text"
               className={`${styles.input} ${styles.fat}`}
-              min="0"
               placeholder={bodyFat}
+              onChange={onChange}
             ></input>
             %
           </div>
@@ -47,9 +73,11 @@ const Record = ({ record, toggle }) => {
         <div className={styles.container}>
           #&nbsp;
           <select
+            ref={tagRef}
             type="text"
             placeholder={bodyTag || dietTag}
             className={`${styles.tag} ${styles.input}`}
+            onChange={onChange}
           >
             {bodyTag ? (
               <>
@@ -74,7 +102,10 @@ const Record = ({ record, toggle }) => {
         src={fileURL || DEFAULT_IMAGE}
         alt="image"
       />
-      <Button name={'Delete'} onClick={onSubmit} />
+      <div className={styles.buttons}>
+        <FileInput />
+        <Button onClick={onSubmit} name="Delete" />
+      </div>
     </div>
   );
 };

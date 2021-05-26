@@ -62,8 +62,20 @@ const Body = ({ FileInput, authService, type }) => {
     });
   });
 
-  const addRecord = (record) => {
-    console.log(record);
+  const createOrUpdateBody = (body) => {
+    setBodies((bodies) => {
+      const updated = { ...bodies };
+      updated[body.id] = body;
+      return updated;
+    });
+  };
+
+  const deleteBody = (body) => {
+    setBodies((bodies) => {
+      const updated = { ...bodies };
+      delete updated[body.id];
+      return updated;
+    });
   };
 
   return (
@@ -74,7 +86,9 @@ const Body = ({ FileInput, authService, type }) => {
           <Records
             FileInput={FileInput}
             records={bodies}
-            addRecord={addRecord}
+            addRecord={createOrUpdateBody}
+            updateRecord={createOrUpdateBody}
+            deleteRecord={deleteBody}
           />
         ) : (
           <Records FileInput={FileInput} records={diets} />
