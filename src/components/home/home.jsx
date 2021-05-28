@@ -5,7 +5,7 @@ import Header from '../header/header';
 import styles from './home.module.css';
 
 const Home = (props) => {
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
   return (
     <section className={styles.home}>
       <Header />

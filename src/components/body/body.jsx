@@ -66,6 +66,7 @@ const Body = ({ FileInput, authService, type }) => {
     setBodies((bodies) => {
       const updated = { ...bodies };
       updated[body.id] = body;
+      console.log(updated);
       return updated;
     });
   };

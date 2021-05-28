@@ -19,8 +19,8 @@ const AddForm = ({ FileInput, onAdd }) => {
       date: dateRef.current.value || '',
       weight: weightRef.current.value || '',
       muscle: muscleRef.current.value || '',
-      fat: fatRef.current.value || '',
-      tag: tagRef.current.value || '',
+      bodyFat: fatRef.current.value || '',
+      bodyTag: tagRef.current.value || '',
       fileURL: '',
     };
     formRef.current.reset();

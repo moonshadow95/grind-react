@@ -11,7 +11,7 @@ const Records = ({
   updateRecord,
   deleteRecord,
 }) => {
-  let { path, url } = useRouteMatch();
+  let { path } = useRouteMatch();
   const [isToggleOn, setIsToggleOn] = useState(true);
   const onToggle = () => {
     if (!isToggleOn) {
