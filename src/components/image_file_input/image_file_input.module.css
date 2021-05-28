@@ -18,3 +18,23 @@
 .button:hover {
   opacity: 1;
 }
+
+.loading {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 1px solid #000;
+  border-bottom: none;
+  border-right: none;
+  margin-left: 0.5em;
+  animation: spin 650ms ease-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
