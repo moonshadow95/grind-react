@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import { findByRole } from '@testing-library/dom';
+import React, { useRef, useState } from 'react';
 import { useRouteMatch } from 'react-router';
 import Button from '../button/button';
 import styles from './add_form.module.css';
@@ -12,8 +13,17 @@ const AddForm = ({ FileInput, onAdd }) => {
   const tagRef = useRef();
   const { url } = useRouteMatch();
   const DEFAULT_IMAGE = '/images/default.png';
+  const [file, setFile] = useState({ fileName: null, fileURL: null });
+
+  const onFileChange = (file) => {
+    setFile({
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onSubmit = (event) => {
+    event.preventDefault();
     const record = {
       id: Date.now(), // uuid
       date: dateRef.current.value || '',
@@ -21,9 +31,11 @@ const AddForm = ({ FileInput, onAdd }) => {
       muscle: muscleRef.current.value || '',
       bodyFat: fatRef.current.value || '',
       bodyTag: tagRef.current.value || '',
-      fileURL: '',
+      fileName: file.fileName || '',
+      fileURL: file.fileURL || '',
     };
     formRef.current.reset();
+    setFile({ fileName: null, fileURL: null });
     onAdd(record);
   };
   return (
@@ -100,7 +112,7 @@ const AddForm = ({ FileInput, onAdd }) => {
       </form>
       <img className={styles.image} src={DEFAULT_IMAGE} alt="default image" />
       <div className={styles.buttons}>
-        <FileInput />
+        <FileInput name={file.fileName} onFileChange={onFileChange} />
         <Button onClick={onSubmit} name="Add" />
       </div>
     </div>

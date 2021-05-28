@@ -3,13 +3,18 @@ import Button from '../button/button';
 import styles from './record.module.css';
 
 const Record = ({ FileInput, updateRecord, deleteRecord, record, toggle }) => {
-  const { weight, muscle, bodyFat, bodyTag, dietTag, fileURL } = record;
+  const { weight, muscle, bodyFat, bodyTag, dietTag, fileName, fileURL } =
+    record;
   const DEFAULT_IMAGE = '/images/default.png';
   const dateRef = useRef();
   const weightRef = useRef();
   const muscleRef = useRef();
   const fatRef = useRef();
   const tagRef = useRef();
+
+  const onFileChange = (file) => {
+    updateRecord({ ...record, fileName: file.name, fileURL: file.url });
+  };
 
   const onChange = (event) => {
     if (event.currentTarget == null) {
@@ -103,7 +108,7 @@ const Record = ({ FileInput, updateRecord, deleteRecord, record, toggle }) => {
         alt="image"
       />
       <div className={styles.buttons}>
-        <FileInput />
+        <FileInput name={fileName} onFileChange={onFileChange} />
         <Button onClick={onSubmit} name="Delete" />
       </div>
     </div>
