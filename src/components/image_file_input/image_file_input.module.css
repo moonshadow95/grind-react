@@ -5,14 +5,23 @@
 }
 
 .button {
-  background-color: grindWhite;
   outline: none;
   border: none;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
   padding: 0.6em 1.5em;
   opacity: 0.7;
   cursor: pointer;
+}
+
+.button.black {
+  border-top: 1px solid grindBlack;
+  border-right: 1px solid grindBlack;
+  background-color: grindWhite;
+}
+.button.white {
+  border-top: 1px solid grindWhite;
+  border-right: 1px solid grindWhite;
+  background-color: grindBlack;
+  color: grindWhite;
 }
 
 .button:hover {
@@ -23,7 +32,7 @@
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
-  border: 1px solid #000;
+  border: 1.5px solid grindBlack;
   border-bottom: none;
   border-right: none;
   margin-left: 0.5em;

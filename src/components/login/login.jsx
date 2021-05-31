@@ -11,10 +11,13 @@ const Login = ({ authService }) => {
       state: { id: userId },
     });
   };
+
   const onLogin = (event) => {
-    authService.login(event.currentTarget.textContent).then((data) => {
-      goToHome(data.user.uid);
-    });
+    authService //
+      .login(event.currentTarget.textContent) //
+      .then((data) => {
+        goToHome(data.user.uid);
+      });
   };
 
   useEffect(() => {

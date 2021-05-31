@@ -4,33 +4,9 @@ import Header from '../header/header';
 import Records from '../records/records';
 import styles from './body.module.css';
 
-const Body = ({ FileInput, authService, type }) => {
-  const [bodies, setBodies] = useState({
-    2: {
-      date: '21-01-15',
-      weight: '79.8',
-      bodyFat: '17.3',
-      muscle: '39.8',
-      bodyTag: 'Front',
-      fileURL: '/images/sample_1.jpg',
-    },
-    3: {
-      date: '21-02-02',
-      weight: '79.8',
-      bodyFat: '17.3',
-      muscle: '39.8',
-      bodyTag: 'Front',
-      fileURL: '/images/sample_2.jpg',
-    },
-    4: {
-      date: '21-02-25',
-      weight: '79.8',
-      bodyFat: '17.3',
-      muscle: '39.8',
-      bodyTag: 'Front',
-      fileURL: '/images/sample_3.jpg',
-    },
-  });
+const Body = ({ FileInput, authService, type, bodyRepository }) => {
+  const historyState = useHistory().state;
+  const [bodies, setBodies] = useState({});
   const [diets, setDiets] = useState({
     2: {
       date: '21-01-15',
@@ -48,6 +24,7 @@ const Body = ({ FileInput, authService, type }) => {
       fileURL: '/images/diet_sample_3.jpg',
     },
   });
+  const [userId, setUserId] = useState(historyState && historyState.id);
   const history = useHistory();
 
   const onLogout = () => {
@@ -55,8 +32,21 @@ const Body = ({ FileInput, authService, type }) => {
   };
 
   useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    // cosnt stopSync = ... => 실행하지 않고  할당만 한다.
+    const stopSync = bodyRepository.syncBodies(userId, (bodies) => {
+      setBodies(bodies);
+    });
+    return () => stopSync();
+  }, [userId]);
+
+  useEffect(() => {
     authService.onAuthChange((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+      } else {
         history.push('/');
       }
     });
@@ -68,6 +58,7 @@ const Body = ({ FileInput, authService, type }) => {
       updated[body.id] = body;
       return updated;
     });
+    bodyRepository.saveBody(userId, body);
   };
 
   const deleteBody = (body) => {
@@ -76,6 +67,7 @@ const Body = ({ FileInput, authService, type }) => {
       delete updated[body.id];
       return updated;
     });
+    bodyRepository.removeBody(userId, body);
   };
 
   return (

@@ -3,7 +3,7 @@ import Button from '../button/button';
 import styles from './record.module.css';
 
 const Record = ({ FileInput, updateRecord, deleteRecord, record, toggle }) => {
-  const { weight, muscle, bodyFat, bodyTag, dietTag, fileName, fileURL } =
+  const { date, weight, muscle, bodyFat, bodyTag, dietTag, fileName, fileURL } =
     record;
   const DEFAULT_IMAGE = '/images/default.png';
   const dateRef = useRef();
@@ -36,6 +36,7 @@ const Record = ({ FileInput, updateRecord, deleteRecord, record, toggle }) => {
         <input
           ref={dateRef}
           type="date"
+          value={date}
           className={`${styles.date} ${styles.input}`}
           onChange={onChange}
         ></input>
