@@ -21,18 +21,21 @@
   overflow: hidden;
   width: 100%;
   border-bottom: 1px solid grindBlack;
-  padding: 0 1em;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.5em 1em;
+}
+
+.form:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .container {
-  width: auto;
   border-bottom: 1px solid grindBlack;
-  margin-bottom: 0.75em;
+  padding-bottom: 0.15em;
   font-size: 0.9rem;
 }
 
 .input.date {
-  padding-top: 0.5rem;
   width: 100%;
 }
 

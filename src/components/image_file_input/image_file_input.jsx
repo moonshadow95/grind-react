@@ -32,7 +32,16 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
           className={`${styles.button} ${name ? styles.black : styles.white}`}
           onClick={onButtonClick}
         >
-          {name || 'Add Image'}
+          {name ? (
+            <>
+              <i className="far fa-file-image"></i>
+              {name}
+            </>
+          ) : (
+            <>
+              <i className="fas fa-file-upload"></i> Add Image
+            </>
+          )}
         </button>
       )}
       {loading && <div className={styles.loading}></div>}
