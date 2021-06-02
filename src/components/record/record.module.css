@@ -23,6 +23,7 @@
   width: 100%;
   border-bottom: 1px solid grindBlack;
   padding: 0 1em;
+  overflow: hidden;
 }
 
 .summary:hover {

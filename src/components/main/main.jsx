@@ -2,28 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Header from '../header/header';
 import Records from '../records/records';
-import styles from './body.module.css';
+import styles from './main.module.css';
 
-const Body = ({ FileInput, authService, type, bodyRepository }) => {
+const Main = ({
+  FileInput,
+  authService,
+  type,
+  bodyRepository,
+  dietRepository,
+}) => {
   const historyState = useHistory().state;
   const [bodies, setBodies] = useState({});
-  const [diets, setDiets] = useState({
-    2: {
-      date: '21-01-15',
-      dietTag: 'Breakfast',
-      fileURL: '/images/diet_sample_1.jpg',
-    },
-    3: {
-      date: '21-02-02',
-      dietTag: 'Breakfast',
-      fileURL: '/images/diet_sample_2.jpg',
-    },
-    4: {
-      date: '21-02-25',
-      dietTag: 'Breakfast',
-      fileURL: '/images/diet_sample_3.jpg',
-    },
-  });
+  const [diets, setDiets] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
   const history = useHistory();
 
@@ -35,11 +25,24 @@ const Body = ({ FileInput, authService, type, bodyRepository }) => {
     if (!userId) {
       return;
     }
-    // cosnt stopSync = ... => 실행하지 않고  할당만 한다.
-    const stopSync = bodyRepository.syncBodies(userId, (bodies) => {
-      setBodies(bodies);
-    });
-    return () => stopSync();
+    switch (type) {
+      case 'body':
+        // cosnt stopSync = ... => 실행하지 않고  할당만 한다.
+        const stopBodySync = bodyRepository.syncBodies(userId, (bodies) => {
+          setBodies(bodies);
+        });
+        return () => stopBodySync();
+
+      case 'diet':
+        // cosnt stopSync = ... => 실행하지 않고  할당만 한다.
+        const stopDietSync = dietRepository.syncDiets(userId, (diets) => {
+          setDiets(diets);
+        });
+        return () => stopDietSync();
+      default:
+        history.push('/home');
+        break;
+    }
   }, [userId]);
 
   useEffect(() => {
@@ -61,6 +64,15 @@ const Body = ({ FileInput, authService, type, bodyRepository }) => {
     bodyRepository.saveBody(userId, body);
   };
 
+  const createOrUpdateDiet = (diet) => {
+    setBodies((diets) => {
+      const updated = { ...diets };
+      updated[diet.id] = diet;
+      return updated;
+    });
+    dietRepository.saveDiet(userId, diet);
+  };
+
   const deleteBody = (body) => {
     setBodies((bodies) => {
       const updated = { ...bodies };
@@ -70,6 +82,14 @@ const Body = ({ FileInput, authService, type, bodyRepository }) => {
     bodyRepository.removeBody(userId, body);
   };
 
+  const deleteDiet = (diet) => {
+    setBodies((diets) => {
+      const updated = { ...diets };
+      delete updated[diet.id];
+      return updated;
+    });
+    dietRepository.removeDiet(userId, diet);
+  };
   return (
     <section className={styles.body}>
       <Header onLogout={onLogout} />
@@ -81,13 +101,21 @@ const Body = ({ FileInput, authService, type, bodyRepository }) => {
             addRecord={createOrUpdateBody}
             updateRecord={createOrUpdateBody}
             deleteRecord={deleteBody}
+            type={type}
           />
         ) : (
-          <Records FileInput={FileInput} records={diets} />
+          <Records
+            FileInput={FileInput}
+            records={diets}
+            addRecord={createOrUpdateDiet}
+            updateRecord={createOrUpdateDiet}
+            deleteRecord={deleteDiet}
+            type={type}
+          />
         )}
       </div>
     </section>
   );
 };
 
-export default Body;
+export default Main;

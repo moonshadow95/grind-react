@@ -1,10 +1,9 @@
-import { findByRole } from '@testing-library/dom';
 import React, { useRef, useState } from 'react';
 import { useRouteMatch } from 'react-router';
 import Button from '../button/button';
 import styles from './add_form.module.css';
 
-const AddForm = ({ FileInput, onAdd }) => {
+const AddForm = ({ FileInput, onAdd, type }) => {
   const formRef = useRef();
   const dateRef = useRef();
   const weightRef = useRef();
@@ -24,19 +23,37 @@ const AddForm = ({ FileInput, onAdd }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const record = {
-      id: Date.now(), // uuid
-      date: dateRef.current.value || '',
-      weight: weightRef.current.value || '',
-      muscle: muscleRef.current.value || '',
-      bodyFat: fatRef.current.value || '',
-      bodyTag: tagRef.current.value || '',
-      fileName: file.fileName || '',
-      fileURL: file.fileURL || '',
-    };
-    formRef.current.reset();
-    setFile({ fileName: null, fileURL: null });
-    onAdd(record);
+    switch (type) {
+      case 'body':
+        const bodyRecord = {
+          id: Date.now(), // uuid
+          date: dateRef.current.value || '',
+          weight: weightRef.current.value || '',
+          muscle: muscleRef.current.value || '',
+          bodyFat: fatRef.current.value || '',
+          bodyTag: tagRef.current.value || '',
+          fileName: file.fileName || '',
+          fileURL: file.fileURL || '',
+        };
+        formRef.current.reset();
+        setFile({ fileName: null, fileURL: null });
+        onAdd(bodyRecord);
+        break;
+      case 'diet':
+        const dietRecord = {
+          id: Date.now(), // uuid
+          date: dateRef.current.value || '',
+          bodyTag: tagRef.current.value || '',
+          fileName: file.fileName || '',
+          fileURL: file.fileURL || '',
+        };
+        formRef.current.reset();
+        setFile({ fileName: null, fileURL: null });
+        onAdd(dietRecord);
+        break;
+      default:
+        throw new Error('unknown error');
+    }
   };
   return (
     <div className={styles.record}>

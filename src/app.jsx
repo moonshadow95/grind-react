@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styles from './app.module.css';
-import Body from './components/body/body';
 import Home from './components/home/home';
 import Login from './components/login/login';
+import Main from './components/main/main';
 
-function App({ FileInput, authService, bodyRepository }) {
+function App({ FileInput, authService, bodyRepository, dietRepository }) {
   const typeIsBody = 'body';
   const typeIsDiet = 'diet';
   return (
@@ -18,7 +18,7 @@ function App({ FileInput, authService, bodyRepository }) {
             <Home authService={authService} />
           </Route>
           <Route path="/home/body">
-            <Body
+            <Main
               FileInput={FileInput}
               authService={authService}
               type={typeIsBody}
@@ -26,11 +26,11 @@ function App({ FileInput, authService, bodyRepository }) {
             />
           </Route>
           <Route path="/home/diet">
-            <Body
+            <Main
               FileInput={FileInput}
               authService={authService}
               type={typeIsDiet}
-              bodyRepository={bodyRepository}
+              dietRepository={dietRepository}
             />
           </Route>
         </Switch>
