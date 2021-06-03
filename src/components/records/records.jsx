@@ -20,6 +20,21 @@ const Records = ({
       setIsToggleOn(false);
     }
   };
+  const changeType = () => {
+    const preType = type;
+    switch (preType) {
+      case 'body':
+        type = 'diet';
+        break;
+
+      case 'diet':
+        type = 'body';
+        break;
+
+      default:
+        throw new Error('unknown error');
+    }
+  };
 
   return (
     <section className={styles.records}>
@@ -46,14 +61,14 @@ const Records = ({
         </button>
         {type === 'body' ? (
           <Link to="../home/diet">
-            <button className={styles.buttonDiet}>
+            <button className={styles.buttonDiet} onClick={changeType}>
               <span>Diet</span>
               <i className="fas fa-exchange-alt"></i>
             </button>
           </Link>
         ) : (
           <Link to="../home/body">
-            <button className={styles.buttonDiet}>
+            <button className={styles.buttonDiet} onClick={changeType}>
               <span>Body</span>
               <i className="fas fa-exchange-alt"></i>
             </button>
