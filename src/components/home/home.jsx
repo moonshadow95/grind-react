@@ -12,9 +12,20 @@ const Home = ({ authService }) => {
       user && goToBody(user.id);
     });
   };
+  const onDietClick = () => {
+    authService.onAuthChange((user) => {
+      user && goToDiet(user.id);
+    });
+  };
   const goToBody = (userId) => {
     history.push({
       pathname: '/home/body',
+      state: { id: userId },
+    });
+  };
+  const goToDiet = (userId) => {
+    history.push({
+      pathname: '/home/diet',
       state: { id: userId },
     });
   };
@@ -41,7 +52,7 @@ const Home = ({ authService }) => {
           </button>
         </li>
         <li className={styles.item}>
-          <button className={styles.button}>
+          <button className={styles.button} onClick={onDietClick}>
             <div className={styles.left}></div>
             <div className={styles.top}></div>
             <div className={styles.right}></div>

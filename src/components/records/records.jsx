@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import AddForm from '../add_form/add_form';
 import Record from '../record/record';
 import styles from './records.module.css';
@@ -13,6 +13,9 @@ const Records = ({
   type,
 }) => {
   const [isToggleOn, setIsToggleOn] = useState(true);
+  let url = useLocation().pathname;
+  const history = useHistory();
+  console.log(url);
   const onToggle = () => {
     if (!isToggleOn) {
       setIsToggleOn(true);
@@ -34,6 +37,8 @@ const Records = ({
       default:
         throw new Error('unknown error');
     }
+    history.push(`../home/${type}`);
+    window.location.reload();
   };
 
   return (
@@ -60,19 +65,15 @@ const Records = ({
           <i className="fas fa-sort-down"></i>
         </button>
         {type === 'body' ? (
-          <Link to="../home/diet">
-            <button className={styles.buttonDiet} onClick={changeType}>
-              <span>Diet</span>
-              <i className="fas fa-exchange-alt"></i>
-            </button>
-          </Link>
+          <button className={styles.buttonDiet} onClick={changeType}>
+            <span>Diet</span>
+            <i className="fas fa-exchange-alt"></i>
+          </button>
         ) : (
-          <Link to="../home/body">
-            <button className={styles.buttonDiet} onClick={changeType}>
-              <span>Body</span>
-              <i className="fas fa-exchange-alt"></i>
-            </button>
-          </Link>
+          <button className={styles.buttonDiet} onClick={changeType}>
+            <span>Body</span>
+            <i className="fas fa-exchange-alt"></i>
+          </button>
         )}
       </div>
     </section>

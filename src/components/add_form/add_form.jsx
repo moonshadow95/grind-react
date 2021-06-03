@@ -22,7 +22,6 @@ const AddForm = ({ FileInput, onAdd, type }) => {
   };
 
   const onSubmit = (event) => {
-    event.preventDefault();
     switch (type) {
       case 'body':
         const bodyRecord = {
