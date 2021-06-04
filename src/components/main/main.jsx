@@ -91,7 +91,7 @@ const Main = ({
     dietRepository.removeDiet(userId, diet);
   };
   return (
-    <section className={styles.body}>
+    <section className={styles.main}>
       <Header onLogout={onLogout} type={type} />
       <div className={styles.container}>
         {type === 'body' ? (

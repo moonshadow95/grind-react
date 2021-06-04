@@ -5,6 +5,8 @@
   background-color: grindWhite;
   border: 1px solid grindBlack;
   padding-bottom: 2em;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .title {
