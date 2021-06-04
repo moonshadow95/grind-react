@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Header from '../header/header';
 import Records from '../records/records';
@@ -17,9 +17,9 @@ const Main = ({
   const [userId, setUserId] = useState(historyState && historyState.id);
   const history = useHistory();
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  };
+  }, [authService]);
 
   useEffect(() => {
     if (!userId) {
@@ -92,7 +92,7 @@ const Main = ({
   };
   return (
     <section className={styles.body}>
-      <Header onLogout={onLogout} />
+      <Header onLogout={onLogout} type={type} />
       <div className={styles.container}>
         {type === 'body' ? (
           <Records

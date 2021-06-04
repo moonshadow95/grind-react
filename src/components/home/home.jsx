@@ -5,7 +5,7 @@ import styles from './home.module.css';
 
 const Home = ({ authService }) => {
   const historyState = useHistory().state;
-  const [setUserId] = useState(historyState && historyState.id);
+  const [userId, setUserId] = useState(historyState && historyState.id);
   const history = useHistory();
   const onBodyClick = () => {
     authService.onAuthChange((user) => {
@@ -31,9 +31,11 @@ const Home = ({ authService }) => {
   };
 
   useEffect(() => {
-    authService.onAuthChange((user) => {
-      setUserId(user.uid);
-    });
+    if (!userId) {
+      authService.onAuthChange((user) => {
+        setUserId(user.uid);
+      });
+    }
   });
 
   return (

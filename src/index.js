@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import '@fortawesome/fontawesome-free/js/all.js';
@@ -11,9 +11,9 @@ import DietRepository from './service/diet_repository';
 
 const authService = new AuthService();
 const imageUploader = new ImageUploader();
-const FileInput = (props) => (
+const FileInput = memo((props) => (
   <ImageFileInput {...props} imageUploader={imageUploader} />
-);
+));
 const bodyRepository = new BodyRepository();
 const dietRepository = new DietRepository();
 

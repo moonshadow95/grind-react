@@ -1,17 +1,19 @@
 import React from 'react';
-import { useRouteMatch } from 'react-router';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import styles from './header.module.css';
 
-const Header = ({ onLogout }) => {
-  let { url } = useRouteMatch();
+const Header = ({ onLogout, type }) => {
+  const history = useHistory();
+  const goToHome = () => {
+    history.push('../home');
+  };
   return (
     <div>
       <header className={`${styles.header} ${onLogout && styles.fixed}`}>
         {onLogout ? (
-          <Link to="/home">
-            <h1 className={styles.title}>Grind.</h1>
-          </Link>
+          <h1 className={styles.title} onClick={goToHome}>
+            Grind.
+          </h1>
         ) : (
           <h1 className={styles.title}>Grind.</h1>
         )}
@@ -20,22 +22,22 @@ const Header = ({ onLogout }) => {
             <ul className={styles.list}>
               <li className={styles.item}>
                 <button className={styles.button}>
-                  {url === '/home/body' ? 'Front' : 'Breakfast'}
+                  {type === 'body' ? 'Front' : 'Breakfast'}
                 </button>
               </li>
               <li className={styles.item}>
                 <button className={styles.button}>
-                  {url === '/home/body' ? 'Back' : 'Lunch'}
+                  {type === 'body' ? 'Back' : 'Lunch'}
                 </button>
               </li>
               <li className={styles.item}>
                 <button className={styles.button}>
-                  {url === '/home/body' ? 'Leg' : 'Dinner'}
+                  {type === 'body' ? 'Leg' : 'Dinner'}
                 </button>
               </li>
               <li className={styles.item}>
                 <button className={styles.button}>
-                  {url === '/home/body' ? 'Arm' : 'Snack'}
+                  {type === 'body' ? 'Arm' : 'Snack'}
                 </button>
               </li>
               <li className={styles.item}>
