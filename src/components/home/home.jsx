@@ -5,7 +5,7 @@ import styles from './home.module.css';
 
 const Home = ({ authService }) => {
   const historyState = useHistory().state;
-  const [userId, setUserId] = useState(historyState && historyState.id);
+  const [setUserId] = useState(historyState && historyState.id);
   const history = useHistory();
   const onBodyClick = () => {
     authService.onAuthChange((user) => {

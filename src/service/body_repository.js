@@ -1,8 +1,8 @@
-import firebaseApp from './firebase';
+import { firebaseDatabase } from './firebase';
 
 class BodyRepository {
   syncBodies(userId, onUpdate) {
-    const ref = firebaseApp.database().ref(`${userId}/bodies/`);
+    const ref = firebaseDatabase.ref(`${userId}/bodies/`);
     ref.on('value', (snapshot) => {
       const value = snapshot.val();
       value && onUpdate(value);
@@ -10,10 +10,10 @@ class BodyRepository {
     return () => ref.off();
   }
   saveBody(userId, body) {
-    firebaseApp.database().ref(`${userId}/bodies/${body.id}`).set(body);
+    firebaseDatabase.ref(`${userId}/bodies/${body.id}`).set(body);
   }
   removeBody(userId, body) {
-    firebaseApp.database().ref(`${userId}/bodies/${body.id}`).remove();
+    firebaseDatabase.ref(`${userId}/bodies/${body.id}`).remove();
   }
 }
 

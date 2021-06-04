@@ -1,8 +1,8 @@
-import firebaseApp from './firebase';
+import { firebaseDatabase } from './firebase';
 
 class DietRepository {
   syncDiets(userId, onUpdate) {
-    const ref = firebaseApp.database().ref(`${userId}/diets/`);
+    const ref = firebaseDatabase.ref(`${userId}/diets/`);
     ref.on('value', (snapshot) => {
       const value = snapshot.val();
       value && onUpdate(value);
@@ -10,10 +10,10 @@ class DietRepository {
     return () => ref.off();
   }
   saveDiet(userId, diet) {
-    firebaseApp.database().ref(`${userId}/diets/${diet.id}`).set(diet);
+    firebaseDatabase.ref(`${userId}/diets/${diet.id}`).set(diet);
   }
   removeDiet(userId, diet) {
-    firebaseApp.database().ref(`${userId}/diets/${diet.id}`).remove();
+    firebaseDatabase.ref(`${userId}/diets/${diet.id}`).remove();
   }
 }
 

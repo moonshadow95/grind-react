@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Button from '../button/button';
 import styles from './record.module.css';
 
@@ -57,11 +57,7 @@ const Record = ({ FileInput, updateRecord, deleteRecord, record, toggle }) => {
           </span>
         </div>
       </div>
-      <img
-        className={styles.image}
-        src={fileURL || DEFAULT_IMAGE}
-        alt="image"
-      />
+      <img className={styles.image} src={fileURL || DEFAULT_IMAGE} alt="" />
       <div className={styles.buttons}>
         <FileInput name={fileName} onFileChange={onFileChange} />
         <Button onClick={onSubmit} name="Delete" />

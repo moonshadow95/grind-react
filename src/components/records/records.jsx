@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import AddForm from '../add_form/add_form';
 import Record from '../record/record';
 import styles from './records.module.css';
@@ -13,9 +13,7 @@ const Records = ({
   type,
 }) => {
   const [isToggleOn, setIsToggleOn] = useState(true);
-  let url = useLocation().pathname;
   const history = useHistory();
-  console.log(url);
   const onToggle = () => {
     if (!isToggleOn) {
       setIsToggleOn(true);

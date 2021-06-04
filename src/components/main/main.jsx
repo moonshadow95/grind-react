@@ -43,7 +43,7 @@ const Main = ({
         history.push('/home');
         break;
     }
-  }, [userId]);
+  }, [userId, history, type, bodyRepository, dietRepository]);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -53,7 +53,7 @@ const Main = ({
         history.push('/');
       }
     });
-  });
+  }, [authService, history]);
 
   const createOrUpdateBody = (body) => {
     setBodies((bodies) => {

@@ -129,7 +129,7 @@ const AddForm = ({ FileInput, onAdd, type }) => {
       <img
         className={styles.image}
         src={file.fileURL || DEFAULT_IMAGE}
-        alt="default image"
+        alt="defaul"
       />
       <div className={styles.buttons}>
         <FileInput name={file.fileName} onFileChange={onFileChange} />
