@@ -1,4 +1,5 @@
 @value grindBlack, grindWhite from '../../common/colors.css';
+@value mediaQuery1 from '../../common/size.css';
 
 .header {
   width: 100%;
@@ -81,4 +82,77 @@ a {
 .logout {
   position: absolute;
   right: 0.5em;
+}
+
+.guide,
+.guide.on {
+  display: block;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  top: -43px;
+  right: 0;
+  width: 2em;
+  height: 43px;
+  justify-content: space-between;
+  padding: 0.8em 0;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.guideBar.off {
+  display: block;
+  width: 1.5em;
+  height: 1px;
+  background-color: grindBlack;
+  transition: all 200ms;
+}
+
+.guideBar.on:first-child {
+  transform: rotate(45deg) translate(3px, 8px);
+}
+.guideBar.on:nth-child(2) {
+  opacity: 0;
+}
+.guideBar.on:last-child {
+  transform: rotate(-45deg) translate(3px, -8px);
+}
+
+@media screen and (max-width: mediaQuery1) {
+  .nav {
+    display: none;
+  }
+  .nav {
+    display: block;
+  }
+  .list {
+    position: absolute;
+    right: 0;
+    top: 43px;
+    flex-direction: column;
+    background: grindWhite;
+    z-index: 1;
+  }
+  .listOn {
+    display: none;
+    border: none;
+  }
+  .listOff {
+    display: block;
+  }
+  .item {
+    border: 1px solid grindBlack;
+    border-top: none;
+  }
+  .button {
+    margin: 0;
+    padding: 0.5em 1em;
+    width: 100%;
+  }
+  .logout {
+    position: static;
+  }
+  .guide {
+    display: flex;
+  }
 }

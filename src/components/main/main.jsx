@@ -97,6 +97,7 @@ const Main = ({
         {type === 'body' ? (
           <Records
             FileInput={FileInput}
+            onLogout={onLogout}
             records={bodies}
             addRecord={createOrUpdateBody}
             updateRecord={createOrUpdateBody}

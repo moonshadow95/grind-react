@@ -1,4 +1,5 @@
-@value mediaQuery from '../../common/size.css';
+@value grindBlack, grindWhite from '../../common/colors.css';
+@value mediaQuery1 from '../../common/size.css';
 
 .records {
   display: flex;
@@ -6,6 +7,8 @@
   width: 100%;
   position: relative;
   margin-top: 66px;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .container {
@@ -29,7 +32,6 @@
 }
 .buttonSum svg {
   transition: all 150ms ease-in;
-  transform-origin: center;
   transform-origin: center 18px;
 }
 
@@ -43,4 +45,25 @@
 
 .buttonSum.hide svg {
   transform: rotate(0);
+}
+
+@media screen and (max-width: mediaQuery1) {
+  .records {
+    margin-top: 43px;
+  }
+
+  .container {
+    right: 4em;
+    top: 0.5em;
+  }
+
+  .container button {
+    font-size: 0.9em;
+  }
+  .container svg {
+    font-size: 1.2em;
+  }
+  .buttonSum svg {
+    transform-origin: center 11px;
+  }
 }
