@@ -100,7 +100,8 @@ a {
   cursor: pointer;
 }
 
-.guideBar.off {
+.guideBar.off,
+.guideBar.on {
   display: block;
   width: 1.5em;
   height: 1px;
