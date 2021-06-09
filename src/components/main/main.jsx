@@ -40,7 +40,7 @@ const Main = ({
         });
         return () => stopDietSync();
       default:
-        history.push('/home');
+        history.push('../home');
         break;
     }
   }, [userId, history, type, bodyRepository, dietRepository]);
@@ -50,7 +50,7 @@ const Main = ({
       if (user) {
         setUserId(user.uid);
       } else {
-        history.push('/');
+        history.push('../');
       }
     });
   }, [authService, history]);
