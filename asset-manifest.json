@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/grind-react/static/css/main.56c46b4d.chunk.css",
+    "main.js": "/grind-react/static/js/main.7bc67d50.chunk.js",
+    "main.js.map": "/grind-react/static/js/main.7bc67d50.chunk.js.map",
+    "runtime-main.js": "/grind-react/static/js/runtime-main.d1cc6acf.js",
+    "runtime-main.js.map": "/grind-react/static/js/runtime-main.d1cc6acf.js.map",
+    "static/js/2.6f21e520.chunk.js": "/grind-react/static/js/2.6f21e520.chunk.js",
+    "static/js/2.6f21e520.chunk.js.map": "/grind-react/static/js/2.6f21e520.chunk.js.map",
+    "index.html": "/grind-react/index.html",
+    "static/css/main.56c46b4d.chunk.css.map": "/grind-react/static/css/main.56c46b4d.chunk.css.map",
+    "static/js/2.6f21e520.chunk.js.LICENSE.txt": "/grind-react/static/js/2.6f21e520.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d1cc6acf.js",
+    "static/js/2.6f21e520.chunk.js",
+    "static/css/main.56c46b4d.chunk.css",
+    "static/js/main.7bc67d50.chunk.js"
+  ]
+}
