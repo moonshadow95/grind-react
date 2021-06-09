@@ -35,8 +35,7 @@ const Records = ({
       default:
         throw new Error('unknown error');
     }
-    history.push(`../home/${type}`);
-    window.location.reload();
+    history.push(`/home/${type}`);
   };
 
   return (
