@@ -1,4 +1,5 @@
 @value grindWhite, grindBlack from '../../common/colors.css';
+@value mediaQuery1 from '../../common/size.css';
 
 .home {
   width: 30em;
@@ -142,4 +143,10 @@
 svg {
   margin-right: 0.2em;
   transform: scale(0.9);
+}
+
+@media screen and (max-width: mediaQuery1) {
+  .home {
+    width: 20em;
+  }
 }
