@@ -13,9 +13,8 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
 3. [Over View](#3-Over-View)
 4. [About Project](#4-About-Project)
 5. [Architecture](#5-Architecture)
-6. [What I've learned](#6--What-Ive-learned)
-7. [Issue](#7--Issue)
-8. [Things to Improvements](#8-Things-to-Improvements)
+6. [Issue](#6--Issue)
+7. [Things to Improvements](#7--Things-to-Improvements)
 
 ## 1. Purpose of this project
 
@@ -33,8 +32,6 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
 
 ## 4. About Project
 
-### 🔑 Login & Upload
-
 <img width="100%" src="https://user-images.githubusercontent.com/73153617/121480233-d01ada00-ca05-11eb-9572-1462311fd230.gif">
 
     - Login with Google or Facebook
@@ -43,15 +40,11 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
     - Even if you log out, your records will be shown again when you log in again.
     - You can cross-move the body page and diet page.
 
-### 📝 Maker Page
-
 ## 5. Architecture
 
 ### Overall
 
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/118086560-20028300-b3ff-11eb-9864-22ebaa6ce778.png" />
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/118088132-91dbcc00-b401-11eb-855d-6d93da11a52d.gif"/>
-
+    -image-
     1. When the login button is clicked, run the login function.
     2. Firebase authenticates the user.
     3. React Router send the user to Maker page
@@ -59,19 +52,14 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
     7. Editor section and Preview section shows the data.
     8. When the user changes the data, it changes in the database as well as the data shown in Preview section.
 
-## 6. 📝 What I've learned
+## 6. 💥 Issue
 
-    - How to route using React Router.
-    - Understand what dependency injection is.
-    - How to authenticate users with Firebase.
-    - How to use Firebase SDK(Software Development Kit).
-    - How to treat data in object form.
-    - How to use Firebase Realtime database.
-    - How to use Cloudinary to upload media files.
+    - How to show the same component but different data. (Body or Diet)
+        => Pass the type to prop and load different data depending on the type.
+    - Problems with different proportions of images to upload.
+        => Set the cloudnary's upload preset to upload it at a 1:1 ratio.
 
-## 7. 💥 Issue
+## 7. 🚀 Things to Improvements
 
-    - Unnecessary rending of components. (header, footer, buttons, cards)
-        => Improve performance with memo() and useCallback()
-
-## 8. 🚀 Things to Improvements
+    - Improve the diet list in a more useful way.
+    - Add tag search functionality in Header.
