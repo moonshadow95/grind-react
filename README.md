@@ -21,6 +21,7 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
 
 - Make application that is actually useful.
 - Make application from scratch using the technology I have.
+- Record body changes and diet.
 
 ## 2. Tech Stack
 
@@ -28,38 +29,22 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
 
 ## 3. Over View
 
-<img width="49%" src="https://user-images.githubusercontent.com/73153617/117763195-60c69480-b265-11eb-932c-32e440daaaf8.png"><img width="49%" src="https://user-images.githubusercontent.com/73153617/117763186-5c01e080-b265-11eb-857b-27be7b5261f2.png"><img width="28%" src="https://user-images.githubusercontent.com/73153617/117763227-6e7c1a00-b265-11eb-9478-1631a83b11be.png"><img width="18%" src="https://user-images.githubusercontent.com/73153617/117763230-6fad4700-b265-11eb-8dc9-9775935850e6.png">
+<img width="49%" src="https://user-images.githubusercontent.com/73153617/121478696-43bbe780-ca04-11eb-93b4-9f25db8e3d08.png"><img width="49%" src="https://user-images.githubusercontent.com/73153617/121478718-474f6e80-ca04-11eb-827e-b79a58f8cb3b.png"><img width="49%" src="https://user-images.githubusercontent.com/73153617/121478726-49b1c880-ca04-11eb-93ba-e2ab129e5c08.png"> <img width="22%" src="https://user-images.githubusercontent.com/73153617/121478740-4d454f80-ca04-11eb-83b4-cef9d23b4ac2.png"> <img width="14%" src="https://user-images.githubusercontent.com/73153617/121478734-4b7b8c00-ca04-11eb-9b25-32941a8fb959.png">
 
 ## 4. About Project
 
-### 🔑 Login Page
+### 🔑 Login & Upload
 
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/117763549-f5c98d80-b265-11eb-9d25-8b1ea7bd7569.gif">
+<img width="100%" src="https://user-images.githubusercontent.com/73153617/121480233-d01ada00-ca05-11eb-9572-1462311fd230.gif">
 
-    - Login with Google or Github or Facebook
-
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/117763977-b485ad80-b266-11eb-9e75-08b8d95e2476.gif">
-
+    - Login with Google or Facebook
     - If you are logged in, you will be logged in automatically even if you return to the login page.
-
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/117763677-2c070d00-b266-11eb-83a1-06339e595a79.gif">
-
-    - Even if you log out, your card information will be shown again when you log in again.
+    - You can upload your picture, write and record some information.
+    - Even if you log out, your records will be shown again when you log in again.
+    - You can cross-move the body page and diet page.
 
 ### 📝 Maker Page
 
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/117764255-29f17e00-b267-11eb-9829-67281714cb8c.gif"/>
-
-    - Enter information on the left maker side, upload a image and press the add button, you will see the result on the right preview side.
-
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/117764268-2f4ec880-b267-11eb-82cc-8fe31c925bdd.gif"/>
-
-    - If you edit information in the left maker section, you can see a preview of your business card in the preview side at the same time.
-
-<img width="100%" src="https://user-images.githubusercontent.com/73153617/117764264-2cec6e80-b267-11eb-93f3-6bca5b5407e7.gif"/>
-    
-    - Add and Delete 
-    
 ## 5. Architecture
 
 ### Overall
