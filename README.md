@@ -48,5 +48,5 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
 
 ## 6. 🚀 Things to Improvements
 
-    - Improve the diet list in a more useful way.
+    - Improve the diet list in a more useful way. ex) Organize by date
     - Add tag search functionality in Header.
