@@ -12,8 +12,8 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
 2. [Tech Stack](#2-Tech-Stack)
 3. [Over View](#3-Over-View)
 4. [About Project](#4-About-Project)
-5. [Issue](#6--Issue)
-6. [Things to Improvements](#7--Things-to-Improvements)
+5. [Issue](#5--Issue)
+6. [Things to Improvements](#6--Things-to-Improvements)
 
 ## 1. Purpose of this project
 
