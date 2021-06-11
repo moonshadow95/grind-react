@@ -12,9 +12,8 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
 2. [Tech Stack](#2-Tech-Stack)
 3. [Over View](#3-Over-View)
 4. [About Project](#4-About-Project)
-5. [Architecture](#5-Architecture)
-6. [Issue](#6--Issue)
-7. [Things to Improvements](#7--Things-to-Improvements)
+5. [Issue](#6--Issue)
+6. [Things to Improvements](#7--Things-to-Improvements)
 
 ## 1. Purpose of this project
 
@@ -40,26 +39,14 @@ Demo Link => https://60c08d2a9e5457c47d2ee2e5--grind-moonshadow.netlify.app
     - Even if you log out, your records will be shown again when you log in again.
     - You can cross-move the body page and diet page.
 
-## 5. Architecture
-
-### Overall
-
-    -image-
-    1. When the login button is clicked, run the login function.
-    2. Firebase authenticates the user.
-    3. React Router send the user to Maker page
-    4-5-6. If the user has own data, Firebase's database get the data and get image from Cloudinary.
-    7. Editor section and Preview section shows the data.
-    8. When the user changes the data, it changes in the database as well as the data shown in Preview section.
-
-## 6. 💥 Issue
+## 5. 💥 Issue
 
     - How to show the same component but different data. (Body or Diet)
         => Pass the type to prop and load different data depending on the type.
     - Problems with different proportions of images to upload.
         => Set the cloudnary's upload preset to upload it at a 1:1 ratio.
 
-## 7. 🚀 Things to Improvements
+## 6. 🚀 Things to Improvements
 
     - Improve the diet list in a more useful way.
     - Add tag search functionality in Header.
